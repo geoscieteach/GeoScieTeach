@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+	<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+	
+		<com.google.android.maps.MapView
+        android:id="@+id/earthmapview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clickable="true"
+        android:apiKey="0h6r-458CjSSMnthTB3dasGHn_QWcP0RnjV6fqA"/>
+
+	<!-- 0h6r-458CjSSMnthTB3dasGHn_QWcP0RnjV6fqA project -->
+	<!-- 0kFU-OB2zySC3CYWekpe8MT4rKhbnoaI-fFY4pA release -->
+	
+		<RelativeLayout android:id="@+id/place_on_map_layout" android:layout_width="fill_parent"
+    		android:layout_height="fill_parent" android:visibility="gone">
+    		
+    		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+    			android:layout_centerInParent="true" android:layout_centerVertical="true" android:textStyle="bold" android:textColor="@color/red" android:text="X">
+    		</TextView>
+    			 
+			<Button android:id="@+id/place_on_map_button" android:layout_width="wrap_content"
+    			android:layout_height="wrap_content" android:text="Place On Map" android:layout_alignParentBottom="true" 
+    			android:layout_centerInParent="true">
+    		</Button>
+
+		</RelativeLayout>
+	</FrameLayout>
+	
+</LinearLayout>

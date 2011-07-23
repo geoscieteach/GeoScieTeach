@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<ScrollView android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+		<LinearLayout android:orientation="vertical"
+			android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+			<TextView android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="Share"
+				android:gravity="center_vertical|center_horizontal"
+				android:textSize="36dip">
+			</TextView>
+
+			<LinearLayout android:orientation="horizontal"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+				<Button android:id="@+id/twitter_button"
+					android:layout_width="100dip" android:layout_weight="1"
+					android:layout_height="100dip" android:text="Twitter">
+				</Button>
+
+				<Button android:id="@+id/wallwisher_button"
+					android:layout_width="100dip" android:layout_weight="1"
+					android:layout_height="100dip" android:text="Wallwisher">
+				</Button>
+
+			</LinearLayout>
+
+			<LinearLayout android:orientation="horizontal"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+				<Button android:id="@+id/tumbler_button"
+					android:layout_width="100dip" android:layout_weight="1"
+					android:layout_height="100dip" android:text="Tumblr">
+				</Button>
+
+				<Button android:id="@+id/xxxx_button" android:layout_width="100dip"
+					android:layout_weight="1" android:layout_height="100dip"
+					android:text="xxxx" android:visibility="invisible">
+				</Button>
+
+			</LinearLayout>
+
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

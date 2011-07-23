@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="text_shadow">#88000000</color>
+	<color name="tangerine">#f57f33</color>
+	<color name="orange">#f26334</color>
+	<color name="black">#231f20</color>
+	<color name="purple">#743a8f</color>
+	<color name="purple5">#6a2789</color>
+	<color name="red">#FF0033</color> 
+</resources>

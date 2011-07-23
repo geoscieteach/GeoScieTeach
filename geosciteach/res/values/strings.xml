@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="geosciteach_directory">"/Android/data/geosciteach/files/"</string>
+	
+	<string name="no_external_writable">No external drive which is writable.</string>
+	<string name="no_external_readable">No external drive which is readable.</string>
+	
+    <string name="hello">Hello World, GeoSciTeachMap!</string>
+    
+    <string name="app_name">GeoSciTeach</string>
+    
+    <string name="menu_1">Question Page</string>
+    <string name="menu_2">Collect Data</string>
+    <string name="menu_3">Info</string>
+    <string name="menu_4">Google Map</string>
+    <string name="menu_5">Your Data Files</string>
+    <string name="menu_6">Share</string>
+    
+    <string name="question">Question</string>
+    <string name="photosynthesis_question">Why and how do humans use plants?</string>
+    
+    <string name="info">Info</string>
+    
+    <string name="info_links">Information Links</string>
+    
+    <string name="country">Country</string>
+    
+    <string-array name="country_array">
+    	<item>[Tap to add]</item>
+		<item>Mexico</item>
+		<item>South Africa</item>
+		<item>Chile</item>
+		<item>United States of America</item>
+		<item>Peru</item>
+		<item>Brazil</item>
+		<item>Indonesia</item>
+		<item>India</item>
+		<item>Cambodia</item>
+		<item>Bolivia</item>
+		<item>Haiti</item>
+		<item>Malaysia</item>
+		<item>Paraguay</item>
+		<item>Ecuador</item>
+		<item>Uruguay</item>
+		<item>Colombia</item>
+		<item>Venezuela</item>
+		<item>Argentina</item>
+		<item>Sudan</item>
+		<item>Ethiopia</item>
+		<item>Egypt</item>
+		<item>Somalia</item>
+		<item>Tanzania</item>
+		<item>Mozambique</item>
+		<item>Madagascar</item>
+		<item>Kenya</item>
+    </string-array>
+    
+    <string name="temperature">Temperature</string>
+    
+    <string-array name="temperature_array">
+    	<item>[Tap to add]</item>
+        <item>Hot</item>
+        <item>Warm</item>
+        <item>Cool</item>        
+    </string-array>
+    
+    <string name="humidity">Humidity</string>
+    
+    <string-array name="humidity_array">
+    	<item>[Tap to add]</item>
+        <item>Wet</item>
+        <item>Moist</item>
+        <item>Dry</item>        
+    </string-array>
+    
+    <string name="soil">Soil type</string>
+    
+    <string-array name="soil_array">
+    	<item>[Tap to add]</item>
+        <item>Very dark brown</item>
+        <item>Brown</item>
+        <item>Sandy</item>        
+    </string-array>
+    
+    <string name="places">Places</string>
+    
+     <!-- Errors and messages -->
+    <string name="qrdroid_missing">QR Barcode Scanner is required. Do you want to download for free?</string>
+    <string name="from_market">From the Market</string>
+    <string name="direct">Direct download</string>
+    <string name="cancel">Cancel</string>
+    <string name="enter_code">Enter some text to encode</string>
+    <string name="not_saved">QR code image could not be saved. Check your SD card is available</string>
+    <string name="saved">QR code image was saved as</string>
+    <string name="enter_url">Enter local path (starting with /) or remote URL (starting with http://) of QR code image</string>
+    <string name="not_decoded">QR code image could not been loaded or decoded</string>
+    <string name="procesing">Processing...</string>
+        
+    <string name="url_market">http://market.android.com/search?q=pname:com.google.zxing.client.android</string>
+    <string name="url_direct">http://zxing.googlecode.com/files/BarcodeScanner3.6b1.apk</string>
+    	
+	<string name="teachers_info">Teacher Information</string>
+	
+	<string name="ok">OK</string>
+	<string name="qr_text">QR Text</string>
+	
+	<string name="ambient_data">Ambient Data</string>
+	
+	<string name="ambient_file">AmbientData.txt</string>
+	
+	<string name="my_photo_file">myphoto.jpg</string>
+	<string name="my_video_file">myvideo.3gp</string>
+	<string name="error_video_1">ERROR: Could not find Video file</string>
+	<string name="error_video_2">ERROR: Could not create Video</string>
+	
+	<string name="are_you_sure">Are you sure?</string>
+	<string name="reset_account">Reset Account</string>
+	<string name="yes">Yes</string>
+	<string name="no">No</string>
+	<string name="delete_pin">Delete Pin</string>
+	<string name="image_to_be_placed">Image still to be placed on map. Are you sure?</string>
+	<string name="click_on_pins">Click on pins for description</string>
+	<string name="princess_royal_glasshouse">Princess Royal Glasshouse</string>
+	<string name="palm_house">Palm House</string>
+	<string name="davies_alpine_house">Davies Alpine House</string>
+    <string name="leaf_photo_file">leaf_photo.jpg</string>
+    <string name="notes_file">Notes.txt</string>
+    <string name="password">1234</string>
+    <string name="country_needs_to_be_selected">A country needs to be selected before upload...</string>
+    <string name="teachers_notes_file">TeachersNotes.txt</string>
+</resources>

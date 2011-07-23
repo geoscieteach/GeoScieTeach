@@ -1,0 +1,347 @@
+com.geosciteach.activities.AmbientDataActivity -> com.geosciteach.activities.AmbientDataActivity:
+    java.lang.String DELIMITER -> a
+    java.lang.String NEW_SPACE -> b
+    android.widget.Spinner mTemperatureSpinner -> c
+    android.widget.Spinner mHumiditySpinner -> d
+    android.widget.Spinner mSoilSpinner -> e
+    android.widget.Spinner mPlacesSpinner -> f
+    void onCreate(android.os.Bundle) -> onCreate
+    void onPause() -> onPause
+com.geosciteach.activities.CollectDataActivity -> com.geosciteach.activities.CollectDataActivity:
+    java.io.File mFile -> a
+    android.widget.Button mCameraButton -> b
+    android.widget.Button mAmbientButton -> c
+    android.widget.Button mNotesButton -> d
+    android.widget.Button mVideoButton -> e
+    void onCreate(android.os.Bundle) -> onCreate
+    void cameraClickPressed$3c7ec8c3() -> a
+    void videoClickPressed$3c7ec8c3() -> b
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+com.geosciteach.activities.CollectDataActivity$1 -> com.geosciteach.activities.k:
+    com.geosciteach.activities.CollectDataActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.CollectDataActivity$2 -> com.geosciteach.activities.l:
+    com.geosciteach.activities.CollectDataActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.CollectDataActivity$3 -> com.geosciteach.activities.al:
+    com.geosciteach.activities.CollectDataActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.CollectDataActivity$4 -> com.geosciteach.activities.am:
+    com.geosciteach.activities.CollectDataActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.CollectDataActivity$5 -> com.geosciteach.activities.an:
+    com.geosciteach.activities.CollectDataActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.CollectDataActivity$6 -> com.geosciteach.activities.ao:
+    com.geosciteach.activities.CollectDataActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.DataFilesActivity -> com.geosciteach.activities.DataFilesActivity:
+    void onCreate(android.os.Bundle) -> onCreate
+com.geosciteach.activities.DataFilesActivity$1 -> com.geosciteach.activities.ak:
+    com.geosciteach.activities.DataFilesActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.DataFilesActivity$1$1 -> com.geosciteach.activities.f:
+    com.geosciteach.activities.DataFilesActivity$1 this$1 -> a
+    android.view.View val$v -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.geosciteach.activities.DataFilesActivity$1$2 -> com.geosciteach.activities.e:
+    com.geosciteach.activities.DataFilesActivity$1 this$1 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.geosciteach.activities.EarthMapActivity -> com.geosciteach.activities.EarthMapActivity:
+    java.lang.String DELIMITER -> a
+    java.lang.String MAP_DELIMITER -> b
+    com.geosciteach.activities.EarthMapActivity$StoreItemizedOverlay mItemizedStoresOverlay -> c
+    android.graphics.drawable.Drawable mPinDrawable -> d
+    com.google.android.maps.MapView mMapView -> e
+    com.google.android.maps.MapController mMapController -> f
+    java.util.List mMapOverlays -> g
+    java.io.File mFile -> h
+    boolean mImageToBePlaced -> i
+    android.widget.RelativeLayout mRelativeLayout -> j
+    com.geosciteach.utils.EarthMapBubblePopup mPopupButton -> k
+    android.widget.Button mPlaceOnMapButton -> l
+    void onCreate(android.os.Bundle) -> onCreate
+    void gotoCountryLocation() -> b
+    void onNewIntent(android.content.Intent) -> onNewIntent
+    void placeOnMapButtonOnClick$3c7ec8c3() -> a
+    void writeToKmlFile(java.lang.String) -> a
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    boolean isRouteDisplayed() -> isRouteDisplayed
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    void removePinSelected(com.geosciteach.activities.EarthMapActivity$PlaceOverlayItem) -> a
+    com.google.android.maps.MapView access$0(com.geosciteach.activities.EarthMapActivity) -> a
+    void access$1(com.geosciteach.activities.EarthMapActivity,com.geosciteach.utils.EarthMapBubblePopup) -> a
+    com.geosciteach.utils.EarthMapBubblePopup access$2(com.geosciteach.activities.EarthMapActivity) -> b
+    com.google.android.maps.MapController access$3(com.geosciteach.activities.EarthMapActivity) -> c
+com.geosciteach.activities.EarthMapActivity$1 -> com.geosciteach.activities.aa:
+    com.geosciteach.activities.EarthMapActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.EarthMapActivity$2 -> com.geosciteach.activities.ab:
+    com.geosciteach.activities.EarthMapActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.EarthMapActivity$3 -> com.geosciteach.activities.y:
+    com.geosciteach.activities.EarthMapActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.geosciteach.activities.EarthMapActivity$4 -> com.geosciteach.activities.z:
+    com.geosciteach.activities.EarthMapActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.geosciteach.activities.EarthMapActivity$PlaceOverlayItem -> com.geosciteach.activities.x:
+    java.lang.String mImagePath -> a
+    java.lang.String mTitle -> b
+    com.google.android.maps.GeoPoint mPoint -> c
+    com.geosciteach.activities.EarthMapActivity this$0 -> d
+    com.google.android.maps.GeoPoint getPoint() -> getPoint
+    java.lang.String getTitle() -> getTitle
+    java.lang.String getImagePath() -> a
+com.geosciteach.activities.EarthMapActivity$StoreItemizedOverlay -> com.geosciteach.activities.u:
+    java.util.ArrayList mOverlayItems -> b
+    java.lang.Object lock -> c
+    android.graphics.drawable.Drawable mDefaultMarker -> d
+    com.geosciteach.activities.EarthMapActivity this$0 -> a
+    com.google.android.maps.OverlayItem createItem(int) -> createItem
+    int size() -> size
+    void addOverlay(com.geosciteach.activities.EarthMapActivity$PlaceOverlayItem) -> a
+    boolean onTap(int) -> onTap
+    android.graphics.drawable.Drawable access$0(com.geosciteach.activities.EarthMapActivity$StoreItemizedOverlay) -> a
+com.geosciteach.activities.EarthMapActivity$StoreItemizedOverlay$1 -> com.geosciteach.activities.r:
+    com.geosciteach.activities.EarthMapActivity$StoreItemizedOverlay this$1 -> a
+    com.geosciteach.activities.EarthMapActivity$PlaceOverlayItem val$item -> b
+    void run() -> run
+com.geosciteach.activities.EarthMapActivity$StoreItemizedOverlay$2 -> com.geosciteach.activities.s:
+    com.geosciteach.activities.EarthMapActivity$StoreItemizedOverlay this$1 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.EarthMapActivity$StoreItemizedOverlay$3 -> com.geosciteach.activities.t:
+    com.geosciteach.activities.EarthMapActivity$StoreItemizedOverlay this$1 -> a
+    com.geosciteach.activities.EarthMapActivity$PlaceOverlayItem val$item -> b
+    boolean onLongClick(android.view.View) -> onLongClick
+com.geosciteach.activities.EarthMapActivity$StoreItemizedOverlay$3$1 -> com.geosciteach.activities.ah:
+    com.geosciteach.activities.EarthMapActivity$StoreItemizedOverlay$3 this$2 -> a
+    com.geosciteach.activities.EarthMapActivity$PlaceOverlayItem val$item -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.geosciteach.activities.EarthMapActivity$StoreItemizedOverlay$3$2 -> com.geosciteach.activities.aj:
+    com.geosciteach.activities.EarthMapActivity$StoreItemizedOverlay$3 this$2 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.geosciteach.activities.GeoSciTeachBaseActivity -> com.geosciteach.activities.GeoSciTeachBaseActivity:
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+com.geosciteach.activities.GeoSciTeachMapActivity -> com.geosciteach.activities.GeoSciTeachMapActivity:
+    com.geosciteach.activities.GeoSciTeachMapActivity$PlaceItemizedOverlay mItemizedStoresOverlay -> a
+    android.graphics.drawable.Drawable mNectarDrawable -> b
+    com.google.android.maps.MapView mMapView -> c
+    com.google.android.maps.MapController mMapController -> d
+    java.util.List mMapOverlays -> e
+    com.geosciteach.utils.MapBubblePopup mPopupButton -> f
+    void onCreate(android.os.Bundle) -> onCreate
+    void onResume() -> onResume
+    boolean isRouteDisplayed() -> isRouteDisplayed
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    com.google.android.maps.MapView access$0(com.geosciteach.activities.GeoSciTeachMapActivity) -> a
+    void access$1(com.geosciteach.activities.GeoSciTeachMapActivity,com.geosciteach.utils.MapBubblePopup) -> a
+    com.geosciteach.utils.MapBubblePopup access$2(com.geosciteach.activities.GeoSciTeachMapActivity) -> b
+    void access$3(com.geosciteach.activities.GeoSciTeachMapActivity) -> c
+com.geosciteach.activities.GeoSciTeachMapActivity$PlaceItemizedOverlay -> com.geosciteach.activities.ag:
+    java.util.ArrayList mOverlayItems -> b
+    java.lang.Object lock -> c
+    android.graphics.drawable.Drawable mDefaultMarker -> d
+    com.geosciteach.activities.GeoSciTeachMapActivity this$0 -> a
+    com.google.android.maps.OverlayItem createItem(int) -> createItem
+    int size() -> size
+    void addOverlay(com.geosciteach.activities.GeoSciTeachMapActivity$PlaceOverlayItem) -> a
+    boolean onTap(int) -> onTap
+    android.graphics.drawable.Drawable access$0(com.geosciteach.activities.GeoSciTeachMapActivity$PlaceItemizedOverlay) -> a
+com.geosciteach.activities.GeoSciTeachMapActivity$PlaceItemizedOverlay$1 -> com.geosciteach.activities.b:
+    com.geosciteach.activities.GeoSciTeachMapActivity$PlaceItemizedOverlay this$1 -> a
+    com.geosciteach.activities.GeoSciTeachMapActivity$PlaceOverlayItem val$item -> b
+    void run() -> run
+com.geosciteach.activities.GeoSciTeachMapActivity$PlaceItemizedOverlay$2 -> com.geosciteach.activities.h:
+    com.geosciteach.activities.GeoSciTeachMapActivity$PlaceItemizedOverlay this$1 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.GeoSciTeachMapActivity$PlaceOverlayItem -> com.geosciteach.activities.ad:
+    com.geosciteach.activities.GeoSciTeachMapActivity this$0 -> a
+com.geosciteach.activities.InformationActivity -> com.geosciteach.activities.InformationActivity:
+    void onCreate(android.os.Bundle) -> onCreate
+com.geosciteach.activities.InformationActivity$1 -> com.geosciteach.activities.c:
+    com.geosciteach.activities.InformationActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.InformationActivity$2 -> com.geosciteach.activities.a:
+    com.geosciteach.activities.InformationActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.InformationActivity$3 -> com.geosciteach.activities.j:
+    com.geosciteach.activities.InformationActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.InformationActivity$4 -> com.geosciteach.activities.i:
+    com.geosciteach.activities.InformationActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.InformationActivity$5 -> com.geosciteach.activities.g:
+    com.geosciteach.activities.InformationActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.LeafCameraActivity -> com.geosciteach.activities.LeafCameraActivity:
+    android.view.SurfaceView preview -> a
+    android.view.SurfaceHolder previewHolder -> b
+    android.hardware.Camera camera -> c
+    boolean inPreview -> d
+    java.io.File mPhoto -> e
+    java.util.ArrayList mLeafList -> f
+    android.widget.ImageView mLeafImageView -> g
+    int mCurrentPos -> h
+    android.view.SurfaceHolder$Callback surfaceCallback -> i
+    android.hardware.Camera$PictureCallback photoCallback -> j
+    void onCreate(android.os.Bundle) -> onCreate
+    void nextOnClick$3c7ec8c3() -> a
+    void preOnClick$3c7ec8c3() -> b
+    void onResume() -> onResume
+    void onPause() -> onPause
+    void buttonClickPressed$3c7ec8c3() -> c
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    void goToPreviewActivity() -> d
+    android.hardware.Camera access$0(com.geosciteach.activities.LeafCameraActivity) -> a
+    android.view.SurfaceHolder access$1(com.geosciteach.activities.LeafCameraActivity) -> b
+    void access$3$34cf4cec(com.geosciteach.activities.LeafCameraActivity) -> c
+    void access$4(com.geosciteach.activities.LeafCameraActivity,java.io.File) -> a
+    java.io.File access$5(com.geosciteach.activities.LeafCameraActivity) -> d
+com.geosciteach.activities.LeafCameraActivity$1 -> com.geosciteach.activities.aq:
+    com.geosciteach.activities.LeafCameraActivity this$0 -> a
+    void surfaceCreated(android.view.SurfaceHolder) -> surfaceCreated
+    void surfaceChanged(android.view.SurfaceHolder,int,int,int) -> surfaceChanged
+    void surfaceDestroyed(android.view.SurfaceHolder) -> surfaceDestroyed
+com.geosciteach.activities.LeafCameraActivity$2 -> com.geosciteach.activities.as:
+    com.geosciteach.activities.LeafCameraActivity this$0 -> a
+    void onPictureTaken(byte[],android.hardware.Camera) -> onPictureTaken
+com.geosciteach.activities.LeafCameraActivity$3 -> com.geosciteach.activities.ar:
+    com.geosciteach.activities.LeafCameraActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.LeafCameraActivity$4 -> com.geosciteach.activities.av:
+    com.geosciteach.activities.LeafCameraActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.LeafCameraActivity$5 -> com.geosciteach.activities.at:
+    com.geosciteach.activities.LeafCameraActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.LeafCameraActivity$SavePhotoTask -> com.geosciteach.activities.ai:
+    com.geosciteach.activities.LeafCameraActivity this$0 -> a
+    java.lang.String doInBackground(byte[][]) -> a
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+com.geosciteach.activities.NotesActivity -> com.geosciteach.activities.NotesActivity:
+    android.widget.EditText notesEditText -> a
+    void onCreate(android.os.Bundle) -> onCreate
+    void onResume() -> onResume
+    void onPause() -> onPause
+com.geosciteach.activities.PasswordEntryActivity -> com.geosciteach.activities.PasswordEntryActivity:
+    android.widget.EditText mPasswordEditText -> a
+    android.widget.Button mEnterButton -> b
+    void onCreate(android.os.Bundle) -> onCreate
+    void onResume() -> onResume
+    void startMapView() -> b
+    void enterButtonOnClick$3c7ec8c3() -> a
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+com.geosciteach.activities.PasswordEntryActivity$1 -> com.geosciteach.activities.au:
+    com.geosciteach.activities.PasswordEntryActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.PlantZoneActivity -> com.geosciteach.activities.PlantZoneActivity:
+    java.lang.String contents -> a
+    android.widget.Button mScanQRButton -> b
+    void onCreate(android.os.Bundle) -> onCreate
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+com.geosciteach.activities.PlantZoneActivity$1 -> com.geosciteach.activities.q:
+    com.geosciteach.activities.PlantZoneActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.PlantZoneActivity$2 -> com.geosciteach.activities.o:
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.geosciteach.activities.PlantZoneActivity$3 -> com.geosciteach.activities.p:
+    android.app.Activity val$activity -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.geosciteach.activities.PlantZoneActivity$4 -> com.geosciteach.activities.m:
+    android.app.Activity val$activity -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.geosciteach.activities.PlantZoneActivity$5 -> com.geosciteach.activities.n:
+    com.geosciteach.activities.PlantZoneActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.geosciteach.activities.PreviewActivity -> com.geosciteach.activities.PreviewActivity:
+    android.widget.ImageView mImageViewer -> a
+    android.widget.Spinner mCountrySpinner -> b
+    android.graphics.Bitmap mBitmap -> c
+    java.lang.String mFileName -> d
+    void onCreate(android.os.Bundle) -> onCreate
+    void onNewIntent(android.content.Intent) -> onNewIntent
+    void loadPreviewBitmap(android.content.Intent) -> a
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    void uploadButtonClickPressed$3c7ec8c3() -> a
+    void onDestroy() -> onDestroy
+com.geosciteach.activities.PreviewActivity$1 -> com.geosciteach.activities.d:
+    com.geosciteach.activities.PreviewActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.QuestionActivity -> com.geosciteach.activities.QuestionActivity:
+    void onCreate(android.os.Bundle) -> onCreate
+com.geosciteach.activities.QuestionActivity$1 -> com.geosciteach.activities.v:
+    com.geosciteach.activities.QuestionActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.QuestionActivity$2 -> com.geosciteach.activities.w:
+    com.geosciteach.activities.QuestionActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.ShareActivity -> com.geosciteach.activities.ShareActivity:
+    void onCreate(android.os.Bundle) -> onCreate
+com.geosciteach.activities.ShareActivity$1 -> com.geosciteach.activities.ac:
+    com.geosciteach.activities.ShareActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.ShareActivity$2 -> com.geosciteach.activities.ae:
+    com.geosciteach.activities.ShareActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.ShareActivity$3 -> com.geosciteach.activities.af:
+    com.geosciteach.activities.ShareActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.activities.TeachersInfoActivity -> com.geosciteach.activities.TeachersInfoActivity:
+    java.lang.String mLink -> a
+    void onCreate(android.os.Bundle) -> onCreate
+    void onResume() -> onResume
+    void onPause() -> onPause
+com.geosciteach.activities.TeachersInfoActivity$1 -> com.geosciteach.activities.ap:
+    com.geosciteach.activities.TeachersInfoActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.geosciteach.utils.EarthMapBubblePopup -> com.geosciteach.utils.EarthMapBubblePopup:
+    android.view.View mParentView -> a
+    android.widget.PopupWindow mWindow -> b
+    android.view.View mRoot -> c
+    android.graphics.drawable.Drawable mBackground -> d
+    java.lang.String mTitleText -> e
+    java.lang.String mLocationText -> f
+    java.lang.String mImageResourcePath -> g
+    android.widget.TextView mTitleTextView -> h
+    android.view.WindowManager mWindowManager -> i
+    int mTop -> j
+    void setOnClickListener(android.view.View$OnClickListener) -> a
+    void setOnLongClickListener(android.view.View$OnLongClickListener) -> a
+    void getScreenOffset(android.graphics.Point,int,int) -> a
+    void show(int,int) -> a
+    void dismiss() -> a
+    android.widget.PopupWindow access$0(com.geosciteach.utils.EarthMapBubblePopup) -> a
+com.geosciteach.utils.EarthMapBubblePopup$1 -> com.geosciteach.utils.c:
+    com.geosciteach.utils.EarthMapBubblePopup this$0 -> a
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.geosciteach.utils.FileUtils -> com.geosciteach.utils.b:
+    java.lang.String getApplicationDirectory(android.content.Context) -> a
+    java.lang.String getUniqueFileNameAtApplicationDirectory(java.lang.String,android.content.Context) -> a
+    void writeDetailsToFile(java.io.File,java.lang.String) -> a
+    java.io.File prepareFileToWriteDetailsTo(android.content.Context,java.lang.String) -> a
+    java.lang.String getUniqueUser(android.content.Context) -> b
+com.geosciteach.utils.GpsUtils -> com.geosciteach.utils.GpsUtils:
+    int latitudeToLatitudeE6(double) -> a
+    int longitudeToLongitudeE6(double) -> b
+com.geosciteach.utils.MapBubblePopup -> com.geosciteach.utils.MapBubblePopup:
+    android.view.View mParentView -> a
+    android.widget.PopupWindow mWindow -> b
+    android.view.View mRoot -> c
+    android.graphics.drawable.Drawable mBackground -> d
+    java.lang.String mTitleText -> e
+    java.lang.String mLocationText -> f
+    int mLeftImageResourceId -> g
+    android.widget.TextView mTitleTextView -> h
+    android.view.WindowManager mWindowManager -> i
+    int mTop -> j
+    void setOnClickListener(android.view.View$OnClickListener) -> a
+    void getScreenOffset(android.graphics.Point,int,int) -> a
+    void show(int,int) -> a
+    void dismiss() -> a
+    android.widget.PopupWindow access$0(com.geosciteach.utils.MapBubblePopup) -> a
+com.geosciteach.utils.MapBubblePopup$1 -> com.geosciteach.utils.a:
+    com.geosciteach.utils.MapBubblePopup this$0 -> a
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch

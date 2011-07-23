@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<FrameLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:layout_weight="1">
+
+		<android.view.SurfaceView android:id="@+id/preview"
+			android:layout_width="fill_parent" android:layout_weight="1"
+			android:layout_height="fill_parent">
+		</android.view.SurfaceView>
+
+		<RelativeLayout android:layout_width="fill_parent"
+			android:layout_height="fill_parent">
+			
+			<ImageView android:id="@+id/leafImageView"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:src="@drawable/acicular" android:layout_above="@+id/buttonBar">
+			</ImageView>
+			
+			<LinearLayout style="@android:style/ButtonBar" android:id="@+id/buttonBar"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:orientation="horizontal" android:layout_alignParentBottom="true">
+
+				<Button android:id="@+id/preButton" android:layout_width="0dip"
+					android:layout_height="wrap_content" android:layout_weight="1"
+					android:text="Previous"/>
+				
+				<Button android:id="@+id/captureButton" android:layout_width="0dip"
+					android:layout_height="wrap_content" android:layout_weight="1"
+					android:text="Capture"/>
+				
+				<Button android:id="@+id/nextButton" android:layout_width="0dip"
+					android:layout_height="wrap_content" android:layout_weight="1"
+					android:text="Next"/>
+					
+			</LinearLayout>
+
+		</RelativeLayout>
+
+	</FrameLayout>
+
+</LinearLayout>

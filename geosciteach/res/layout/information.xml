@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="@string/info_links"
+		android:gravity="center_vertical|center_horizontal" android:textSize="36dip">
+	</TextView>
+
+	<LinearLayout android:orientation="horizontal"
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+		<Button android:id="@+id/kewpaedia_button"
+			android:layout_width="100dip" android:layout_weight="1"
+			android:layout_height="100dip" android:text="Kewpaedia">
+		</Button>
+
+		<ImageButton android:id="@+id/twitter_button"
+			android:layout_width="100dip" android:layout_weight="1"
+			android:layout_height="100dip" android:src="@drawable/twitter"
+			android:visibility="gone">
+		</ImageButton>
+
+		<Button android:id="@+id/google_button" android:layout_width="100dip"
+			android:layout_weight="1" android:layout_height="100dip"
+			android:text="Google">
+		</Button>
+
+	</LinearLayout>
+
+	<LinearLayout android:orientation="horizontal"
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+		<Button android:id="@+id/wikipedia_button"
+			android:layout_width="100dip" android:layout_weight="1"
+			android:layout_height="100dip" android:text="Wikipedia">
+		</Button>
+
+		<Button android:id="@+id/youtube_button" android:layout_width="100dip"
+			android:layout_weight="1" android:layout_height="100dip"
+			android:text="Youtube" android:visibility="gone">
+		</Button>
+
+		<Button android:id="@+id/teacher_suggestions_button"
+			android:layout_width="100dip" android:layout_weight="1"
+			android:layout_height="100dip" android:text="Teacher Suggestions">
+		</Button>
+
+	</LinearLayout>
+
+</LinearLayout>

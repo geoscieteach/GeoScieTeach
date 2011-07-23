@@ -1,0 +1,64 @@
+com.geosciteach.activities.CollectDataActivity:
+    private static final int ACTIVITY_TAKE_PICTURE
+    private static final int CAPTURE_VIDEO_ACTIVITY_REQUEST_CODE
+    public static final java.lang.String PHOTO_FILE_NAME
+com.geosciteach.activities.EarthMapActivity:
+    public static final java.lang.String MAPPINS
+com.geosciteach.activities.EarthMapActivity$StoreItemizedOverlay:
+    private static final java.lang.String TAG
+com.geosciteach.activities.GeoSciTeachBaseActivity:
+    69:69:protected boolean isRouteDisplayed()
+com.geosciteach.activities.GeoSciTeachMapActivity:
+    public static final java.lang.String INTENT_EXTRA_QUESTION_INFO
+com.geosciteach.activities.GeoSciTeachMapActivity$PlaceItemizedOverlay:
+    private static final java.lang.String TAG
+com.geosciteach.activities.NotesActivity:
+    public static final java.lang.String NOTES
+com.geosciteach.activities.PasswordEntryActivity:
+    public static final java.lang.String LOGIN
+    public static final java.lang.String LOGINPASSWORD
+    public static final java.lang.String UNIQUEUSER
+    public static final int ACTIVITY_MAP
+com.geosciteach.activities.PlantZoneActivity:
+    public static final java.lang.String HTTP
+    private static final int ACTIVITY_SCAN_QR
+com.geosciteach.activities.PreviewActivity:
+    public static final java.lang.String PHOTO_FILE_NAME
+    public static final java.lang.String PHOTO_COUNTRY
+    public static final int MAP_ACTIVITY
+com.geosciteach.activities.R
+com.geosciteach.activities.R$anim
+com.geosciteach.activities.R$array
+com.geosciteach.activities.R$attr
+com.geosciteach.activities.R$color
+com.geosciteach.activities.R$drawable
+com.geosciteach.activities.R$id
+com.geosciteach.activities.R$layout
+com.geosciteach.activities.R$menu
+com.geosciteach.activities.R$string
+com.geosciteach.activities.R$style
+com.geosciteach.activities.TeachersInfoActivity:
+    public static final java.lang.String TEACHERINFO
+com.geosciteach.utils.EarthMapBubblePopup:
+    private static final java.lang.String TAG
+    40:41:public EarthMapBubblePopup(android.view.View,java.lang.String,java.lang.String)
+    142:143:public void setBackgroundDrawable(android.graphics.drawable.Drawable)
+    153:156:public void setContentView(int)
+    159:160:public void setOnDismissListener(android.widget.PopupWindow$OnDismissListener)
+com.geosciteach.utils.FileUtils:
+    29:42:public static boolean checkExternalStorageReadAndWritable(android.content.Context)
+    56:71:public static boolean checkExternalStorageReadable(android.content.Context)
+com.geosciteach.utils.GpsUtils:
+    private static final int MULTIPLICATION_FACTOR
+    static final double LATITUDE_MAX
+    static final double LATITUDE_MIN
+    static final double LONGITUDE_MAX
+    static final double LONGITUDE_MIN
+    46:46:public static float metersToMiles(float)
+com.geosciteach.utils.MapBubblePopup:
+    private static final java.lang.String TAG
+    private android.widget.TextView mSubTextView
+    private android.widget.ImageView mLeftImageView
+    120:121:public void setBackgroundDrawable(android.graphics.drawable.Drawable)
+    131:134:public void setContentView(int)
+    137:138:public void setOnDismissListener(android.widget.PopupWindow$OnDismissListener)

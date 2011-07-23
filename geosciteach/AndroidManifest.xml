@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.geosciteach.activities" android:versionCode="8"
+	android:versionName="1.0.6">
+	<application android:icon="@drawable/icon" android:label="@string/app_name">
+
+		<uses-library android:name="com.google.android.maps" />
+
+		<activity android:name="PasswordEntryActivity" android:label="@string/app_name"
+			android:launchMode="singleTask">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+
+		<activity android:name="ShareActivity" android:label="@string/app_name"></activity>
+
+		<activity android:name="NotesActivity" android:label="@string/app_name"></activity>
+
+		<activity android:name="GeoSciTeachMapActivity"
+			android:label="@string/app_name" android:configChanges="keyboard|orientation"></activity>
+
+		<activity android:name="EarthMapActivity" android:label="@string/app_name"
+			android:configChanges="keyboard|orientation"></activity>
+
+		<activity android:name="CollectDataActivity" android:label="@string/app_name"
+			android:configChanges="keyboard|orientation"></activity>
+
+		<activity android:name="QuestionActivity" android:label="@string/app_name"
+			android:launchMode="singleTask"></activity>
+
+		<activity android:name="InformationActivity" android:label="@string/app_name"></activity>
+
+		<activity android:name="GeoSciTeachBaseActivity"
+			android:label="@string/app_name"></activity>
+
+		<activity android:name="AmbientDataActivity"></activity>
+
+		<activity android:name="PreviewActivity" android:launchMode="singleTask" android:screenOrientation="portrait"></activity>
+
+		<activity android:name="PlantZoneActivity"></activity>
+
+		<activity android:name="TeachersInfoActivity"></activity>
+
+		<activity android:name="LeafCameraActivity" android:label="@string/app_name"
+			android:configChanges="keyboardHidden|orientation"
+			android:screenOrientation="landscape"
+			android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+		</activity>
+
+		<activity android:name="DataFilesActivity" android:label="@string/app_name">
+		</activity>
+
+	</application>
+
+	<supports-screens android:largeScreens="false"
+		android:normalScreens="true" android:smallScreens="false" />
+	<uses-feature android:name="android.hardware.camera" />
+
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+	<uses-sdk android:minSdkVersion="4" />
+
+</manifest> 

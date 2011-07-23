@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<ScrollView android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+		
+		<LinearLayout android:orientation="vertical" android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+		
+		<TextView android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:text="Collect Data"
+			android:gravity="center_vertical|center_horizontal" android:textSize="36dip">
+		</TextView>
+
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+			<Button android:id="@+id/plant_characteristics"
+				android:layout_width="100dip" android:layout_weight="1"
+				android:layout_height="100dip" android:drawableTop="@drawable/leaf" android:text="Plant Characteristics">
+			</Button>
+
+			<Button android:id="@+id/camera_button"
+				android:layout_width="100dip" android:layout_weight="1"
+				android:layout_height="100dip" android:drawableTop="@drawable/camera" android:text="Camera">
+			</Button>
+
+		</LinearLayout>
+
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+			<Button android:id="@+id/ambient_data_button"
+				android:layout_width="100dip" android:layout_weight="1"
+				android:layout_height="100dip" android:drawableTop="@drawable/sun" android:text="Ambient Data">
+			</Button>
+
+			<Button android:id="@+id/notes_button" android:layout_width="100dip"
+				android:layout_weight="1" android:layout_height="100dip"
+				android:drawableTop="@drawable/writepage" android:text="Notes">
+			</Button>
+
+		</LinearLayout>
+
+
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+			<Button android:id="@+id/video_button"
+				android:layout_width="100dip" android:layout_weight="1"
+				android:layout_height="100dip" android:text="Video" android:drawableTop="@drawable/video">
+			</Button>
+
+			<Button android:id="@+id/plant_button" android:layout_width="100dip" android:layout_weight="1"
+				android:layout_height="100dip" android:text="Plant/Zone" android:drawableTop="@drawable/raindrop">
+			</Button>
+
+		</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

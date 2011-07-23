@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<LinearLayout android:id="@+id/surveyheader"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:layout_weight="1.0" android:orientation="horizontal"
+		android:gravity="center_vertical|center_horizontal">
+
+		<LinearLayout android:id="@+id/surveyheader"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:orientation="vertical" android:gravity="center_vertical|center_horizontal">
+
+			<TextView android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="@string/question"
+				android:textColor="@android:color/white" android:textSize="40dip"
+				android:gravity="center_horizontal" android:paddingBottom="60dip">
+			</TextView>
+
+			<Button android:id="@+id/question_button"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:text="@string/photosynthesis_question" android:textColor="@android:color/white"
+				android:textSize="36dip" android:background="@drawable/custom_button"
+				android:gravity="center_horizontal">
+			</Button>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+
+	<LinearLayout style="@android:style/ButtonBar"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<Button android:id="@+id/back_to_kew_button"
+			android:layout_width="0dip" android:layout_height="wrap_content"
+			android:layout_weight="1" android:text="Back To Kew Map" />
+
+	</LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="wrap_content" android:layout_width="wrap_content"
+	android:background="@drawable/popup_pointer_button">
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+		<ImageView android:layout_width="60dip"
+			android:layout_height="60dip" android:id="@+id/map_bubble_pic"
+			android:layout_alignParentTop="true">
+		</ImageView>
+		<TextView android:layout_width="wrap_content" android:text="@+id/TextView01"
+			android:layout_height="wrap_content" android:id="@+id/map_bubble_title"
+			android:textColor="@android:color/black" android:shadowColor="@android:color/white"
+			android:shadowDy="1" android:shadowRadius="1" android:layout_below="@+id/map_bubble_pic"
+			android:textSize="16dip"></TextView>
+	</RelativeLayout>
+
+</FrameLayout>
