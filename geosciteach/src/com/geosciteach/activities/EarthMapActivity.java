@@ -44,13 +44,19 @@ import com.google.android.maps.OverlayItem;
  *
  *  Author: George Sin
  */
+
+/**
+ * The class EarthMapActivity which shows a map of the earth of which photos can
+ * be added to or removed. Map pins and the referenced photos are saved to a KML
+ * format.
+ */
 public class EarthMapActivity extends MapActivity {
 
 	public final static String MAPPINS = "map_pins";
 	private final String DELIMITER = ";";
 	private final String MAP_DELIMITER = "@";
 
-	private static StoreItemizedOverlay mItemizedStoresOverlay = null;
+	private static MapItemizedOverlay mItemizedPinsOverlay = null;
 
 	private Drawable mPinDrawable;
 	private MapView mMapView;
@@ -67,7 +73,13 @@ public class EarthMapActivity extends MapActivity {
 
 	private Button mPlaceOnMapButton;
 
-	/** Called when the activity is first created. */
+	/**
+	 * This method overrides onCreate(...) in Activity. Set layout views and map
+	 * related components.
+	 * 
+	 * @param savedInstanceState
+	 *            - bundle passed to this Activity.
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -84,9 +96,9 @@ public class EarthMapActivity extends MapActivity {
 
 		mPinDrawable = this.getResources().getDrawable(R.drawable.map_pin);
 
-		mItemizedStoresOverlay = new StoreItemizedOverlay(mPinDrawable);
+		mItemizedPinsOverlay = new MapItemizedOverlay(mPinDrawable);
 
-		mMapOverlays.add(mItemizedStoresOverlay);
+		mMapOverlays.add(mItemizedPinsOverlay);
 
 		mRelativeLayout = (RelativeLayout) findViewById(R.id.place_on_map_layout);
 
@@ -106,6 +118,10 @@ public class EarthMapActivity extends MapActivity {
 		gotoCountryLocation();
 	}
 
+	/**
+	 * This method moves the map centre to the location as passed via intent.
+	 * Also reads the photo filename of which is to be added onto the map.
+	 */
 	private void gotoCountryLocation() {
 		String fileName = getIntent().getStringExtra(
 				PreviewActivity.PHOTO_FILE_NAME);
@@ -272,6 +288,12 @@ public class EarthMapActivity extends MapActivity {
 		}
 	}
 
+	/**
+	 * Method which is called on re-entry to EarthMapActivity.
+	 * 
+	 * @param intent
+	 *            - The intent associated to the Activity.
+	 */
 	public void onNewIntent(Intent intent) {
 
 		super.onNewIntent(intent);
@@ -287,6 +309,10 @@ public class EarthMapActivity extends MapActivity {
 		gotoCountryLocation();
 	}
 
+	/**
+	 * Method which loads all map pins onto the map. Reads maps pins from the
+	 * store pin values in SharedPreferences.
+	 */
 	public void placePinsOnDiskMap() {
 
 		SharedPreferences mapPinsDetails = getSharedPreferences(MAPPINS,
@@ -315,7 +341,7 @@ public class EarthMapActivity extends MapActivity {
 							PlaceOverlayItem storeOverlayItem = new PlaceOverlayItem(
 									geoPoint, file.getPath(), file.getName(),
 									"placeName");
-							mItemizedStoresOverlay.addOverlay(storeOverlayItem);
+							mItemizedPinsOverlay.addOverlay(storeOverlayItem);
 						}
 					}
 				}
@@ -323,12 +349,18 @@ public class EarthMapActivity extends MapActivity {
 		}
 	}
 
+	/**
+	 * Method which places a map pin on to a map.
+	 * 
+	 * @param button
+	 *            - the View associated to the button pressed.
+	 */
 	public void placeOnMapButtonOnClick(View button) {
 		GeoPoint mapcenter = mMapView.getMapCenter();
 
 		PlaceOverlayItem storeOverlayItem = new PlaceOverlayItem(mapcenter,
 				mFile.getPath(), mFile.getName(), "placeName");
-		mItemizedStoresOverlay.addOverlay(storeOverlayItem);
+		mItemizedPinsOverlay.addOverlay(storeOverlayItem);
 
 		mMapController.animateTo(mapcenter);
 
@@ -341,6 +373,16 @@ public class EarthMapActivity extends MapActivity {
 		writeToFile(mFile.getPath(), mapcenter);
 	}
 
+	/**
+	 * Method to write to all map pin details to shared preferences and KML
+	 * file.
+	 * 
+	 * @param path
+	 *            - the path of the image file
+	 * 
+	 * @param mapcenter
+	 *            - the geo point of the pin
+	 */
 	private void writeToFile(String path, GeoPoint mapcenter) {
 
 		SharedPreferences mapPinsDetails = getSharedPreferences(MAPPINS,
@@ -351,8 +393,8 @@ public class EarthMapActivity extends MapActivity {
 			mapPins = "";
 		}
 
-		mapPins = mapPins + path + MAP_DELIMITER + mapcenter.getLatitudeE6() + MAP_DELIMITER
-				+ mapcenter.getLongitudeE6() + DELIMITER;
+		mapPins = mapPins + path + MAP_DELIMITER + mapcenter.getLatitudeE6()
+				+ MAP_DELIMITER + mapcenter.getLongitudeE6() + DELIMITER;
 
 		SharedPreferences.Editor editor = mapPinsDetails.edit();
 		editor.putString(MAPPINS, mapPins);
@@ -364,6 +406,13 @@ public class EarthMapActivity extends MapActivity {
 		writeToKmlFile(mapPins);
 	}
 
+	/**
+	 * Method to write all map pin details to KML file.
+	 * 
+	 * @param mapPins
+	 *            - the String which details the map pins currently placed on
+	 *            map.
+	 */
 	private void writeToKmlFile(String mapPins) {
 
 		if (mapPins != null) {
@@ -458,24 +507,46 @@ public class EarthMapActivity extends MapActivity {
 		}
 	}
 
-	private class StoreItemizedOverlay extends ItemizedOverlay {
+	/**
+	 * Overlay class for map which allows pins to be added over a map.
+	 */
+	private class MapItemizedOverlay extends ItemizedOverlay {
 		private static final String TAG = "StoreItemizedOverlay";
 
 		private ArrayList<PlaceOverlayItem> mOverlayItems = new ArrayList<PlaceOverlayItem>();
 		private Object lock = new Object();
 		private Drawable mDefaultMarker;
 
-		public StoreItemizedOverlay(Drawable defaultMarker) {
+		/**
+		 * Constructor of MapItemizedOverlay.
+		 * 
+		 * @param defaultMarker
+		 *            - Drawable of the pin which is to be used.
+		 */
+		public MapItemizedOverlay(Drawable defaultMarker) {
 			super(boundCenterBottom(defaultMarker));
 			mDefaultMarker = defaultMarker;
 			populate();
 		}
 
+		/**
+		 * Method by which subclasses create the actual Items.
+		 * 
+		 * @param i
+		 *            - the position of the item.
+		 * 
+		 * @return the OverlayItem.
+		 */
 		@Override
 		protected OverlayItem createItem(int i) {
 			return mOverlayItems.get(i);
 		}
 
+		/**
+		 * Method to get the number of items in this overlay.
+		 * 
+		 * @return the size of this overlay.
+		 */
 		@Override
 		public int size() {
 			synchronized (lock) {
@@ -483,6 +554,12 @@ public class EarthMapActivity extends MapActivity {
 			}
 		}
 
+		/**
+		 * Method to add an overlay to the array list of overlays.
+		 * 
+		 * @param overlay
+		 *            - PlaceOverlayItem overlay to add.
+		 */
 		public void addOverlay(PlaceOverlayItem overlay) {
 			synchronized (lock) {
 				mOverlayItems.add(overlay);
@@ -491,6 +568,15 @@ public class EarthMapActivity extends MapActivity {
 			}
 		}
 
+		/**
+		 * Method to handle a "tap" on an item.
+		 * 
+		 * @param index
+		 *            - the index of the pin.
+		 * 
+		 * @return true if you handled the tap, false if you want the event that
+		 *         generated it to pass to other overlays
+		 */
 		@Override
 		protected boolean onTap(int index) {
 			final PlaceOverlayItem item = mOverlayItems.get(index);
@@ -541,17 +627,25 @@ public class EarthMapActivity extends MapActivity {
 					AlertDialog.Builder pinRemoveBuilder = new AlertDialog.Builder(
 							EarthMapActivity.this);
 					pinRemoveBuilder
-							.setMessage(EarthMapActivity.this.getString(R.string.are_you_sure))
+							.setMessage(
+									EarthMapActivity.this
+											.getString(R.string.are_you_sure))
 							.setCancelable(false)
-							.setTitle(EarthMapActivity.this.getString(R.string.delete_pin))
-							.setPositiveButton(EarthMapActivity.this.getString(R.string.yes),
+							.setTitle(
+									EarthMapActivity.this
+											.getString(R.string.delete_pin))
+							.setPositiveButton(
+									EarthMapActivity.this
+											.getString(R.string.yes),
 									new DialogInterface.OnClickListener() {
 										public void onClick(
 												DialogInterface dialog, int id) {
 											removePinSelected(item);
 										}
 									})
-							.setNegativeButton(EarthMapActivity.this.getString(R.string.no),
+							.setNegativeButton(
+									EarthMapActivity.this
+											.getString(R.string.no),
 									new DialogInterface.OnClickListener() {
 										public void onClick(
 												DialogInterface dialog, int id) {
@@ -570,11 +664,30 @@ public class EarthMapActivity extends MapActivity {
 		}
 	}
 
+	/**
+	 * OverlayItem class for map place which represents a pin item which can be
+	 * placed onto Overlay.
+	 */
 	private class PlaceOverlayItem extends OverlayItem {
 		private String mImagePath;
 		private String mTitle;
 		private GeoPoint mPoint;
 
+		/**
+		 * Constructor of PlaceOverlayItem.
+		 * 
+		 * @param point
+		 *            - GeoPoint of the place to be added.
+		 * 
+		 * @param imagePath
+		 *            - Path of image associated to pin.
+		 * 
+		 * @param title
+		 *            - Title text.
+		 * 
+		 * @param snippent
+		 *            - Snippet text.
+		 */
 		public PlaceOverlayItem(GeoPoint point, String imagePath, String title,
 				String snippet) {
 			super(point, title, snippet);
@@ -583,19 +696,42 @@ public class EarthMapActivity extends MapActivity {
 			mImagePath = imagePath;
 		}
 
+		/**
+		 * Method which returns the GeoPoint of this overlay.
+		 * 
+		 * @return GeoPoint of PlaceOverlayItem.
+		 */
 		public GeoPoint getPoint() {
 			return mPoint;
 		}
 
+		/**
+		 * Method which returns the title text of this overlay.
+		 * 
+		 * @return String of title.
+		 */
 		public String getTitle() {
 			return mTitle;
 		}
 
+		/**
+		 * Method which returns the image path.
+		 * 
+		 * @return String of image path.
+		 */
 		public String getImagePath() {
 			return mImagePath;
 		}
 	}
 
+	/**
+	 * Called the once by activity to create the menu bar for activity.
+	 * 
+	 * @param menu
+	 *            - the menu to be used.
+	 * 
+	 * @return return true for the menu to be displayed
+	 */
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.global_menu, menu);
@@ -607,6 +743,15 @@ public class EarthMapActivity extends MapActivity {
 		return true;
 	}
 
+	/**
+	 * This hook is called whenever an item in your options menu is selected.
+	 * 
+	 * @param item
+	 *            - the menu item that was selected.
+	 * 
+	 * @return boolean Return false to allow normal menu processing to proceed,
+	 *         true to consume it here.
+	 */
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.menu_1:
@@ -646,20 +791,41 @@ public class EarthMapActivity extends MapActivity {
 		}
 	}
 
+	/**
+	 * The server needs to know whether or not you are currently displaying any
+	 * kind of route information, such as a set of driving directions.
+	 * 
+	 * @return True if route information is displayed; false otherwise.
+	 */
 	@Override
 	protected boolean isRouteDisplayed() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
+	/**
+	 * This method overrides onKeyDown(...) in Activity. Ensures that the back
+	 * button provides the correct response as required.
+	 * 
+	 * @param keyCode
+	 *            - The value in event.getKeyCode().
+	 * @param event
+	 *            - Description of the key event.
+	 * 
+	 * @return true to prevent this event from being propagated further, or
+	 *         false to indicate that you have not handled this event and it
+	 *         should continue to be propagated.
+	 */
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			if (mImageToBePlaced) {
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
 				builder.setMessage(
-						EarthMapActivity.this.getString(R.string.image_to_be_placed))
+						EarthMapActivity.this
+								.getString(R.string.image_to_be_placed))
 						.setCancelable(false)
-						.setPositiveButton(EarthMapActivity.this.getString(R.string.yes),
+						.setPositiveButton(
+								EarthMapActivity.this.getString(R.string.yes),
 								new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog,
 											int id) {
@@ -667,7 +833,8 @@ public class EarthMapActivity extends MapActivity {
 										finish();
 									}
 								})
-						.setNegativeButton(EarthMapActivity.this.getString(R.string.no),
+						.setNegativeButton(
+								EarthMapActivity.this.getString(R.string.no),
 								new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog,
 											int id) {
@@ -687,6 +854,12 @@ public class EarthMapActivity extends MapActivity {
 		return super.onKeyDown(keyCode, event);
 	}
 
+	/**
+	 * Method to remove pin selected.
+	 * 
+	 * @param item
+	 *            - the PlaceOverlayItem to remove.
+	 */
 	public void removePinSelected(PlaceOverlayItem item) {
 
 		mMapOverlays.clear();
@@ -696,7 +869,7 @@ public class EarthMapActivity extends MapActivity {
 		mMapController.animateTo(mMapView.getMapCenter());
 
 		String newMapPins = "";
-		mItemizedStoresOverlay = new StoreItemizedOverlay(mPinDrawable);
+		mItemizedPinsOverlay = new MapItemizedOverlay(mPinDrawable);
 
 		SharedPreferences mapPinsDetails = getSharedPreferences(MAPPINS,
 				MODE_PRIVATE);
@@ -728,7 +901,7 @@ public class EarthMapActivity extends MapActivity {
 								PlaceOverlayItem storeOverlayItem = new PlaceOverlayItem(
 										geoPoint, file.getPath(),
 										file.getName(), "placeName");
-								mItemizedStoresOverlay
+								mItemizedPinsOverlay
 										.addOverlay(storeOverlayItem);
 							}
 						}
@@ -737,7 +910,7 @@ public class EarthMapActivity extends MapActivity {
 			}
 		}
 
-		mMapOverlays.add(mItemizedStoresOverlay);
+		mMapOverlays.add(mItemizedPinsOverlay);
 
 		SharedPreferences.Editor editor = mapPinsDetails.edit();
 		editor.putString(MAPPINS, newMapPins);

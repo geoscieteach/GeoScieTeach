@@ -23,6 +23,10 @@ import android.widget.EditText;
  *
  *  Author: George Sin
  */
+
+/**
+ * The class TeachersInfoActivity which allows teacher user to note down teacher ideas and prompts.
+ */
 public class TeachersInfoActivity extends GeoSciTeachBaseActivity {
 	
 	//private final String mLink = "http://www.youtube.com/user/GeoSciTeachproject?feature=mhee";
@@ -30,6 +34,13 @@ public class TeachersInfoActivity extends GeoSciTeachBaseActivity {
 	
 	public static final String TEACHERINFO = "TEACHERINFO";
 	
+	/**
+	 * This method overrides onCreate(...) in Activity. Set layout views related
+	 * to the TeachersInfo activity.
+	 * 
+	 * @param savedInstanceState
+	 *            - bundle passed to this Activity.
+	 */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
@@ -46,12 +57,20 @@ public class TeachersInfoActivity extends GeoSciTeachBaseActivity {
 		});
 	}
 	
+	 /**
+     * Method which opens a browser with you tube open.
+     * 
+     * @param button - the View associated to the button pressed.
+     */
 	public void youTubeClickPressed(View button) {
 		
 		Uri uri = Uri.parse(mLink);
 		startActivity(new Intent(Intent.ACTION_VIEW, uri));
 	}
 	
+	/**
+	 * This method overrides onResume(...) in Activity. Retrieves saved data from Shared Preferences.
+	 */
 	protected void onResume() {
 		super.onResume();
 
@@ -63,6 +82,10 @@ public class TeachersInfoActivity extends GeoSciTeachBaseActivity {
 		ideaandprompt.setText(settings.getString(TEACHERINFO, ""));
 	}
 	
+	/**
+	 * This method overrides onPause(...) in Activity. Saves any teacher notes taken to
+	 * shared preferences and to file.
+	 */
 	public void onPause() {
 		super.onPause();
 		

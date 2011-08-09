@@ -17,8 +17,21 @@ import android.widget.Button;
  *
  *  Author: George Sin
  */
-public class ShareActivity extends GeoSciTeachBaseActivity {
 
+/**
+ * The class ShareActivity which deals with the share section of the
+ * application. The share section of the application contains access to Twitter,
+ * Wallwisher and Tumblr.
+ */
+public class ShareActivity extends GeoSciTeachBaseActivity {
+	
+	/**
+	 * This method overrides onCreate(...) in Activity. Set layout views related
+	 * to the Share activity.
+	 * 
+	 * @param savedInstanceState
+	 *            - bundle passed to this Activity.
+	 */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
@@ -56,17 +69,32 @@ public class ShareActivity extends GeoSciTeachBaseActivity {
 		
 	}
 	
+	 /**
+     * Method which opens a browser with tumbler.
+     * 
+     * @param button - the View associated to the button pressed.
+     */
 	public void tumblerButtonOnClick(View button){
 		Uri uri = Uri.parse( "http://geosciteach.tumblr.com/" );
 		startActivity( new Intent( Intent.ACTION_VIEW, uri ) );
 		
 	}
 	
+	/**
+     * Method which opens a browser with wall wisher.
+     * 
+     * @param button - the View associated to the button pressed.
+     */
 	public void wallWisherOnClick(View button) {
 		Uri uri = Uri.parse( "http://www.wallwisher.com/wall/GeoSciTeach" );
 		startActivity( new Intent( Intent.ACTION_VIEW, uri ) );
 	}
-
+	
+	/**
+     * Method which opens a browser with twitter.
+     * 
+     * @param button - the View associated to the button pressed.
+     */
 	public void twitterOnClick(View button) {
 		Uri uri = Uri.parse("http://twitter.com/#!/geosciteach");
 		startActivity(new Intent(Intent.ACTION_VIEW, uri));

@@ -1,7 +1,5 @@
 package com.geosciteach.utils;
 
-import com.geosciteach.activities.R;
-
 import android.content.Context;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
@@ -18,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.geosciteach.activities.R;
+
 /*
  *  GeoSciTeach Android App
  *  Copyright (C) 2011 Institute of Education, University of London.
@@ -28,6 +28,10 @@ import android.widget.TextView;
  *  is included in all copies or substantial portions of the software.
  *
  *  Author: George Sin
+ */
+
+/**
+ * Class which provide map bubble pop up for map activity.
  */
 public class MapBubblePopup {
 	private static final String TAG = "MapBubblePopup";
@@ -44,11 +48,33 @@ public class MapBubblePopup {
 	private ImageView mLeftImageView;
 	private final WindowManager mWindowManager;
 	private int mTop;
-
+	
+	/**
+	 * Constructor of MapBubblePopup.
+	 * 
+	 * @param parent
+	 *            - parent view.
+	 * @param titleText
+	 *            - title text of bubble pop up.
+	 * @param locationText
+	 *            - snippet value
+	 */
 	public MapBubblePopup(View parent, String titleText, String locationText) {
 		this(parent, 0, titleText, locationText);
 	}
 
+	/**
+	 * Constructor of MapBubblePopup.
+	 * 
+	 * @param parent
+	 *            - parent view.
+	 * @param leftImageResourceId
+	 *            - path to image for pop up.
+	 * @param titleText
+	 *            - title text of bubble pop up.
+	 * @param locationText
+	 *            - snippet value
+	 */
 	public MapBubblePopup(View parent, int leftImageResourceId,
 			String titleText, String locationText) {
 		mParentView = parent;
@@ -73,7 +99,10 @@ public class MapBubblePopup {
 
 		onCreate();
 	}
-
+	
+	/**
+	 * Method to set layout views related to the pop up.
+	 */
 	protected void onCreate() {
 		LayoutInflater inflater = (LayoutInflater) mParentView.getContext()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -93,20 +122,24 @@ public class MapBubblePopup {
 		// set the inflated view as what we want to display
 		this.setContentView(view);
 	}
-
+	
+	/**
+	 * Method which sets click listener of the map bubble.
+	 * 
+	 * @param listener - onClickListener value.
+	 */
 	public void setOnClickListener(View.OnClickListener listener) {
 		mRoot.setOnClickListener(listener);
 	}
-
-	protected void onShow() {
-	}
-
+	
+	/**
+	 * Method which defines layout values before showing the map bubble.
+	 */
 	private void preShow() {
 		if (mRoot == null) {
 			throw new IllegalStateException(
 					"setContentView was not called with a view to display.");
 		}
-		onShow();
 
 		if (mBackground == null) {
 			mWindow.setBackgroundDrawable(new BitmapDrawable());
@@ -126,28 +159,55 @@ public class MapBubblePopup {
 
 		mWindow.setContentView(this.mRoot);
 	}
-
+	
+	/**
+	 * Method to set the background drawable.
+	 * 
+	 * @param background - the background drawable to set the background.
+	 */
 	public void setBackgroundDrawable(Drawable background) {
 		mBackground = background;
 	}
-
+	
+	/**
+	 * Method to set the content view.
+	 * 
+	 * @param root - the content view to set.
+	 */
 	public void setContentView(View root) {
 		mRoot = root;
 		mWindow.setContentView(root);
 		mTop = mWindowManager.getDefaultDisplay().getHeight()
 				- mParentView.getHeight();
 	}
-
+	
+	/**
+	 * Method to set the content view from a layout resource id.
+	 * 
+	 * @param layoutResID - the content view to set.
+	 */
 	public void setContentView(int layoutResID) {
 		LayoutInflater inflator = (LayoutInflater) this.mParentView
 				.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.setContentView(inflator.inflate(layoutResID, null));
 	}
-
+	
+	/**
+	 * Method to set on dismiss listener.
+	 * 
+	 * @param listener - the OnDismissListener listener.
+	 */
 	public void setOnDismissListener(PopupWindow.OnDismissListener listener) {
 		mWindow.setOnDismissListener(listener);
 	}
-
+	
+	/**
+	 * Method relating to screen off set required for the pop up.
+	 * 
+	 * @param point - relating to the pop up
+	 * @param xPlacement - relating to the x placement of pop up.
+	 * @param yPlacement - relating to the y placement of pop up.
+	 */
 	public void getScreenOffset(Point point, int xPlacement, int yPlacement) {
 		if (point == null) {
 			return;
@@ -179,7 +239,13 @@ public class MapBubblePopup {
 		Log.d("Y", "y=" + point.y);
 		Log.d("Height", "parentHeight" + parentHeight);
 	}
-
+	
+	/**
+	 * Method to show the pop up window.
+	 * 
+	 * @param xPos - x position.
+	 * @param yPos - y position.
+	 */
 	public void show(int xPos, int yPos) {
 		this.preShow();
 
@@ -192,7 +258,10 @@ public class MapBubblePopup {
 		mWindow.showAtLocation(this.mParentView, Gravity.NO_GRAVITY, xPos
 				- rootWidth / 2, yPos + mTop - rootHeight);
 	}
-
+	
+	/**
+	 * Method to dismiss the pop up window
+	 */
 	public void dismiss() {
 		mWindow.dismiss();
 	}

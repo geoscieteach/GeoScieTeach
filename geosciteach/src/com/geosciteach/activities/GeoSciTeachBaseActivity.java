@@ -17,8 +17,23 @@ import android.view.MenuItem;
  *
  *  Author: George Sin
  */
+
+/**
+ * 
+ * The class GeoSciTeachBaseActivity which provides a base Activity for other activities.
+ * Within this base class the global menu button is defined. 
+ * 
+ */
 public class GeoSciTeachBaseActivity extends Activity{
 	
+	/**
+	 * Called the once by activity to create the menu bar for activity.
+	 * 
+	 * @param menu
+	 *            - the menu to be used.
+	 * 
+	 * @return return true for the menu to be displayed
+	 */
     public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 	    inflater.inflate(R.menu.global_menu, menu);
@@ -42,6 +57,15 @@ public class GeoSciTeachBaseActivity extends Activity{
 	    return true;
 	}
 	
+    /**
+	 * This hook is called whenever an item in your options menu is selected.
+	 * 
+	 * @param item
+	 *            - the menu item that was selected.
+	 * 
+	 * @return boolean Return false to allow normal menu processing to proceed,
+	 *         true to consume it here.
+	 */
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 	    case R.id.menu_1:
@@ -72,11 +96,5 @@ public class GeoSciTeachBaseActivity extends Activity{
 	    default:
 	        return super.onOptionsItemSelected(item);
 	    }
-	}
-
-	protected boolean isRouteDisplayed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
+	}	
 }

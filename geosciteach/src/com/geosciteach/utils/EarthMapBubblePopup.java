@@ -1,7 +1,5 @@
 package com.geosciteach.utils;
 
-import com.geosciteach.activities.R;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -21,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.geosciteach.activities.R;
+
 /*
  *  GeoSciTeach Android App
  *  Copyright (C) 2011 Institute of Education, University of London.
@@ -31,6 +31,10 @@ import android.widget.TextView;
  *  is included in all copies or substantial portions of the software.
  *
  *  Author: George Sin
+ */
+
+/**
+ * Class which provide map bubble pop up for earth map activity.
  */
 public class EarthMapBubblePopup {
 	private static final String TAG = "MapBubblePopup";
@@ -46,11 +50,33 @@ public class EarthMapBubblePopup {
 	private final WindowManager mWindowManager;
 	private int mTop;
 
+	/**
+	 * Constructor of EarthMapBubblePopup.
+	 * 
+	 * @param parent
+	 *            - parent view.
+	 * @param titleText
+	 *            - title text of bubble pop up.
+	 * @param locationText
+	 *            - snippet value
+	 */
 	public EarthMapBubblePopup(View parent, String titleText,
 			String locationText) {
 		this(parent, null, titleText, locationText);
 	}
 
+	/**
+	 * Constructor of EarthMapBubblePopup.
+	 * 
+	 * @param parent
+	 *            - parent view.
+	 * @param pathToImage
+	 *            - path to image for pop up.
+	 * @param titleText
+	 *            - title text of bubble pop up.
+	 * @param locationText
+	 *            - snippet value
+	 */
 	public EarthMapBubblePopup(View parent, String pathToImage,
 			String titleText, String locationText) {
 		mParentView = parent;
@@ -76,6 +102,9 @@ public class EarthMapBubblePopup {
 		onCreate();
 	}
 
+	/**
+	 * Method to set layout views related to the pop up.
+	 */
 	protected void onCreate() {
 		LayoutInflater inflater = (LayoutInflater) mParentView.getContext()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -112,23 +141,32 @@ public class EarthMapBubblePopup {
 		this.setContentView(view);
 	}
 
+	/**
+	 * Method which sets click listener of the map bubble.
+	 * 
+	 * @param listener - onClickListener value.
+	 */
 	public void setOnClickListener(View.OnClickListener listener) {
 		mRoot.setOnClickListener(listener);
 	}
-
+	
+	/**
+	 * Method which sets long click listener of the map bubble.
+	 * 
+	 * @param listener - onClickListener value.
+	 */
 	public void setOnLongClickListener(View.OnLongClickListener listener) {
 		mRoot.setOnLongClickListener(listener);
 	}
 
-	protected void onShow() {
-	}
-
+	/**
+	 * Method which defines layout values before showing the map bubble.
+	 */
 	private void preShow() {
 		if (mRoot == null) {
 			throw new IllegalStateException(
 					"setContentView was not called with a view to display.");
 		}
-		onShow();
 
 		if (mBackground == null) {
 			mWindow.setBackgroundDrawable(new BitmapDrawable());
@@ -148,28 +186,55 @@ public class EarthMapBubblePopup {
 
 		mWindow.setContentView(this.mRoot);
 	}
-
+	
+	/**
+	 * Method to set the background drawable.
+	 * 
+	 * @param background - the background drawable to set the background.
+	 */
 	public void setBackgroundDrawable(Drawable background) {
 		mBackground = background;
 	}
-
+	
+	/**
+	 * Method to set the content view.
+	 * 
+	 * @param root - the content view to set.
+	 */
 	public void setContentView(View root) {
 		mRoot = root;
 		mWindow.setContentView(root);
 		mTop = mWindowManager.getDefaultDisplay().getHeight()
 				- mParentView.getHeight();
 	}
-
+	
+	/**
+	 * Method to set the content view from a layout resource id.
+	 * 
+	 * @param layoutResID - the content view to set.
+	 */
 	public void setContentView(int layoutResID) {
 		LayoutInflater inflator = (LayoutInflater) this.mParentView
 				.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.setContentView(inflator.inflate(layoutResID, null));
 	}
-
+	
+	/**
+	 * Method to set on dismiss listener.
+	 * 
+	 * @param listener - the OnDismissListener listener.
+	 */
 	public void setOnDismissListener(PopupWindow.OnDismissListener listener) {
 		mWindow.setOnDismissListener(listener);
 	}
 
+	/**
+	 * Method relating to screen off set required for the pop up.
+	 * 
+	 * @param point - relating to the pop up
+	 * @param xPlacement - relating to the x placement of pop up.
+	 * @param yPlacement - relating to the y placement of pop up.
+	 */
 	public void getScreenOffset(Point point, int xPlacement, int yPlacement) {
 		if (point == null) {
 			return;
@@ -201,7 +266,13 @@ public class EarthMapBubblePopup {
 		Log.d("Y", "y=" + point.y);
 		Log.d("Height", "parentHeight" + parentHeight);
 	}
-
+	
+	/**
+	 * Method to show the pop up window.
+	 * 
+	 * @param xPos - x position.
+	 * @param yPos - y position.
+	 */
 	public void show(int xPos, int yPos) {
 		this.preShow();
 
@@ -214,7 +285,10 @@ public class EarthMapBubblePopup {
 		mWindow.showAtLocation(this.mParentView, Gravity.NO_GRAVITY, xPos
 				- rootWidth / 2, yPos + mTop - rootHeight);
 	}
-
+	
+	/**
+	 * Method to dismiss the pop up window
+	 */
 	public void dismiss() {
 		mWindow.dismiss();
 	}

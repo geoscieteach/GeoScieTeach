@@ -19,8 +19,21 @@ import android.widget.Button;
  *
  *  Author: George Sin
  */
+
+/**
+ * The class DataFilesActivity which allows a user to reset the account in use
+ * with the application. A "are you sure" message is shown when resetting the
+ * account.
+ */
 public class DataFilesActivity extends GeoSciTeachBaseActivity {
 
+	/**
+	 * This method overrides onCreate(...) in Activity. Set layout views and the
+	 * onClickListener of the reset button.
+	 * 
+	 * @param savedInstanceState
+	 *            - bundle passed to this Activity.
+	 */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
@@ -65,6 +78,12 @@ public class DataFilesActivity extends GeoSciTeachBaseActivity {
 		});
 	}
 
+	/**
+	 * This method resets the application so that a new user folder is created.
+	 * 
+	 * @param button
+	 *            - the View associated to the button pressed.
+	 */
 	public void resetClickPressed(View button) {
 
 		SharedPreferences settings = getSharedPreferences(

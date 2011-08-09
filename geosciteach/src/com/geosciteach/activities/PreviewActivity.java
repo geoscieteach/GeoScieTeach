@@ -22,6 +22,10 @@ import android.widget.Toast;
  *
  *  Author: George Sin
  */
+
+/**
+ * The class PreviewActivity which shows a image file to preview.
+ */
 public class PreviewActivity extends GeoSciTeachBaseActivity {
 
 	public static final String PHOTO_FILE_NAME = "photo_file_name";
@@ -33,7 +37,14 @@ public class PreviewActivity extends GeoSciTeachBaseActivity {
 	private Bitmap mBitmap;
 
 	private String mFileName;
-
+	
+	/**
+	 * This method overrides onCreate(...) in Activity. Set layout views related
+	 * to the Preview activity.
+	 * 
+	 * @param savedInstanceState
+	 *            - bundle passed to this Activity.
+	 */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.preview);
@@ -63,6 +74,12 @@ public class PreviewActivity extends GeoSciTeachBaseActivity {
 		loadPreviewBitmap(getIntent());
 	}
 
+	/**
+	 * Method which is called on re-entry to PreviewActivity.
+	 * 
+	 * @param intent
+	 *            - The intent associated to the Activity.
+	 */
 	public void onNewIntent(Intent intent) {
 
 		super.onNewIntent(intent);
@@ -71,7 +88,12 @@ public class PreviewActivity extends GeoSciTeachBaseActivity {
 		
 		mCountrySpinner.setSelection(0);
 	}
-
+	
+	/**
+	 * Method to load the preview bitmap.
+	 * 
+	 * @param intent - the intent which has extra data relating to photo file name.
+	 */
 	public void loadPreviewBitmap(Intent intent) {
 		mFileName = intent.getStringExtra(
 				CollectDataActivity.PHOTO_FILE_NAME);
@@ -87,7 +109,22 @@ public class PreviewActivity extends GeoSciTeachBaseActivity {
 			mImageViewer.setImageBitmap(mBitmap);
 		}
 	}
-
+	
+	/**
+	 * This method overrides onActivityResult(...) in Activity. Deals with the
+	 * result from Activities started from this class.
+	 * 
+	 * @param requestCode
+	 *            - The integer request code originally supplied to
+	 *            startActivityForResult(), allowing you to identify who this
+	 *            result came from.
+	 * @param resultCode
+	 *            - The integer result code returned by the child activity
+	 *            through its setResult().
+	 * @param intent
+	 *            - An Intent, which can return result data to the caller
+	 *            (various data can be attached to Intent "extras").
+	 */
 	protected void onActivityResult(int requestCode, int resultCode,
 			Intent intent) {
 
@@ -97,7 +134,12 @@ public class PreviewActivity extends GeoSciTeachBaseActivity {
 			finish();
 		}
 	}
-
+	
+	/**
+	 * Method to start the map activity with the image path passed as an extra value in the intent.
+	 * 
+	 * @param button - the View associated to the button pressed.
+	 */
 	public void uploadButtonClickPressed(View button) {
 
 		if (mCountrySpinner.getSelectedItemPosition() == 0) {
@@ -115,6 +157,9 @@ public class PreviewActivity extends GeoSciTeachBaseActivity {
 		}
 	}
 
+	/**
+	 * This method overrides onDestroy(...) in Activity. Ensures that the preview bitmap is recycled.
+	 */
 	protected void onDestroy() {
 		super.onDestroy();
 

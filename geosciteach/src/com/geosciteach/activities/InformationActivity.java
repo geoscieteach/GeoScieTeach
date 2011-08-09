@@ -17,7 +17,21 @@ import android.widget.Button;
  *
  *  Author: George Sin
  */
+
+/**
+ * The class InformationActivity which provides access to Kewpaedia, Google,
+ * Wikipedia and Teacher Suggestions sections of the application.
+ */
 public class InformationActivity extends GeoSciTeachBaseActivity {
+
+	/**
+	 * This method overrides onCreate(...) in Activity. Set layout views and
+	 * button related to starting Kewpaedia, Google, Wikipedia and Teacher
+	 * Suggestions sections of the application.
+	 * 
+	 * @param savedInstanceState
+	 *            - bundle passed to this Activity.
+	 */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.information);
@@ -72,32 +86,56 @@ public class InformationActivity extends GeoSciTeachBaseActivity {
 			}
 		});
 	}
-
+	
+	/**
+	 * Method to start web browser with youtube page.
+	 * 
+	 * @param button - the View associated to the button pressed.
+	 */
 	public void youTubeOnClick(View button) {
 		Uri uri = Uri.parse("http://www.youtube.com/");
 		startActivity(new Intent(Intent.ACTION_VIEW, uri));
 	}
-
+	
+	/**
+	 * Method to start web browser with google page.
+	 * 
+	 * @param button - the View associated to the button pressed.
+	 */
 	public void googleOnClick(View button) {
 		Uri uri = Uri.parse("http://www.google.co.uk/");
 		startActivity(new Intent(Intent.ACTION_VIEW, uri));
 	}
-
+	
+	/**
+	 * Method to start web browser with wikipedia page.
+	 * 
+	 * @param button - the View associated to the button pressed.
+	 */
 	public void wikipediaOnClick(View button) {
 		Uri uri = Uri.parse("http://en.wikipedia.org/wiki/Main_Page");
 		startActivity(new Intent(Intent.ACTION_VIEW, uri));
 	}
-
+	
+	/**
+	 * Method to start web browser with kewpaedia page.
+	 * 
+	 * @param button - the View associated to the button pressed.
+	 */
 	public void kewpaediaOnClick(View button) {
 		Uri uri = Uri.parse("http://www.kew.org/plants-fungi/index.htm");
 		startActivity(new Intent(Intent.ACTION_VIEW, uri));
 	}
-
+	
+	/**
+	 * Method to start TeachersInfoActivity Activity.
+	 * 
+	 * @param button - the View associated to the button pressed.
+	 */
 	public void teacherSuggestionOnClick(View button) {
 		Intent intent = new Intent(InformationActivity.this,
 				TeachersInfoActivity.class);
 
 		startActivity(intent);
 	}
-
 }

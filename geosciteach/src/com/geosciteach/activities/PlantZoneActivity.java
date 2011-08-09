@@ -21,6 +21,10 @@ import android.widget.Button;
  *
  *  Author: George Sin
  */
+
+/**
+ * The class PlantZoneActivity which allows the user to start a QR reader application.
+ */
 public class PlantZoneActivity extends GeoSciTeachBaseActivity {
 
 	public final static String HTTP = "http";
@@ -29,7 +33,14 @@ public class PlantZoneActivity extends GeoSciTeachBaseActivity {
 	private String contents;
 
 	private Button mScanQRButton;
-
+	
+	/**
+	 * This method overrides onCreate(...) in Activity. Set layout views related
+	 * to the plant zone activity.
+	 * 
+	 * @param savedInstanceState
+	 *            - bundle passed to this Activity.
+	 */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
@@ -45,7 +56,12 @@ public class PlantZoneActivity extends GeoSciTeachBaseActivity {
 			}
 		});
 	}
-
+	
+	/**
+	 * Method which starts the QR reader application.
+	 * 
+	 * @param button - the View associated to the button pressed.
+	 */
 	public void ambientDataOnClick(View button) {
 		try {
 
@@ -61,9 +77,9 @@ public class PlantZoneActivity extends GeoSciTeachBaseActivity {
 	}
 
 	/**
-	 * Display a message stating that QR Barcode Scanner is required
+	 * Display a message stating that QR Barcode Scanner is required.
 	 * 
-	 * @param activity
+	 * @param activity - the activity used with the AlertDialog.
 	 */
 	public static void qrBarcodeScannerRequired(final Activity activity) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
@@ -96,6 +112,21 @@ public class PlantZoneActivity extends GeoSciTeachBaseActivity {
 		builder.create().show();
 	}
 
+	/**
+	 * This method overrides onActivityResult(...) in Activity. Deals with the
+	 * result from Activities started from this class.
+	 * 
+	 * @param requestCode
+	 *            - The integer request code originally supplied to
+	 *            startActivityForResult(), allowing you to identify who this
+	 *            result came from.
+	 * @param resultCode
+	 *            - The integer result code returned by the child activity
+	 *            through its setResult().
+	 * @param intent
+	 *            - An Intent, which can return result data to the caller
+	 *            (various data can be attached to Intent "extras").
+	 */
 	protected void onActivityResult(int requestCode, int resultCode,
 			Intent intent) {
 

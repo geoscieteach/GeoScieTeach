@@ -27,6 +27,13 @@ import android.widget.Toast;
  *
  *  Author: George Sin
  */
+
+/**
+ * The class CollectDataActivity which deals with the collection of data section
+ * of the application. This class includes the setting up of views required for
+ * Collect Data, which includes buttons to enter Plant Characteristics, Camera,
+ * Ambient Data, Notes, Video and Plant/Zone.
+ */
 public class CollectDataActivity extends GeoSciTeachBaseActivity {
 
 	private static final int ACTIVITY_TAKE_PICTURE = 0;
@@ -39,6 +46,14 @@ public class CollectDataActivity extends GeoSciTeachBaseActivity {
 	private Button mNotesButton;
 	private Button mVideoButton;
 
+	/**
+	 * This method overrides onCreate(...) in Activity. Set layout views and
+	 * Buttons which provide access to Collect Data sections Plant
+	 * Characteristics, Camera, Ambient Data, Notes, Video and Plant/Zone.
+	 * 
+	 * @param savedInstanceState
+	 *            - bundle passed to this Activity.
+	 */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.collect);
@@ -104,16 +119,36 @@ public class CollectDataActivity extends GeoSciTeachBaseActivity {
 		});
 	}
 
+	/**
+	 * This method starts the Plant Zone activity.
+	 * 
+	 * @param button
+	 *            - the View associated to the button pressed.
+	 */
 	public void plantZoneClickPressed(View button) {
 		Intent intent = new Intent(this, PlantZoneActivity.class);
 		startActivity(intent);
 	}
 
+	/**
+	 * This method starts the Leaf Camera activity.
+	 * 
+	 * @param button
+	 *            - the View associated to the button pressed.
+	 */
 	public void plantClickPressed(View button) {
 		Intent intent = new Intent(this, LeafCameraActivity.class);
 		startActivity(intent);
 	}
 
+	/**
+	 * This method starts the camera application. An unique file is created and
+	 * then passed as an extra value via intent, providing output path of the
+	 * image file.
+	 * 
+	 * @param button
+	 *            - the View associated to the button pressed.
+	 */
 	public void cameraClickPressed(View button) {
 
 		String filename = FileUtils.getUniqueFileNameAtApplicationDirectory(
@@ -133,6 +168,12 @@ public class CollectDataActivity extends GeoSciTeachBaseActivity {
 		startActivityForResult(intent, ACTIVITY_TAKE_PICTURE);
 	}
 
+	/**
+	 * This method starts the video application.
+	 * 
+	 * @param button
+	 *            - the View associated to the button pressed.
+	 */
 	public void videoClickPressed(View button) {
 
 		mFile = new File(FileUtils.getApplicationDirectory(this)
@@ -147,6 +188,22 @@ public class CollectDataActivity extends GeoSciTeachBaseActivity {
 		startActivityForResult(intent, CAPTURE_VIDEO_ACTIVITY_REQUEST_CODE);
 	}
 
+	/**
+	 * This method overrides onActivityResult(...) in Activity. Deals with the
+	 * result from Activities started from this class, which include taking a
+	 * picture and starting a video.
+	 * 
+	 * @param requestCode
+	 *            - The integer request code originally supplied to
+	 *            startActivityForResult(), allowing you to identify who this
+	 *            result came from.
+	 * @param resultCode
+	 *            - The integer result code returned by the child activity
+	 *            through its setResult().
+	 * @param intent
+	 *            - An Intent, which can return result data to the caller
+	 *            (various data can be attached to Intent "extras").
+	 */
 	protected void onActivityResult(int requestCode, int resultCode,
 			Intent intent) {
 
@@ -203,13 +260,25 @@ public class CollectDataActivity extends GeoSciTeachBaseActivity {
 			}
 		}
 	}
-
+	
+	/**
+	 * This method starts the ambient data section.
+	 * 
+	 * @param button
+	 *            - the View associated to the button pressed.
+	 */
 	public void ambientDataClickPressed(View button) {
 		Intent intent = new Intent(CollectDataActivity.this,
 				AmbientDataActivity.class);
 		startActivity(intent);
 	}
-
+	
+	/**
+	 * This method starts the notes section.
+	 * 
+	 * @param button
+	 *            - the View associated to the button pressed.
+	 */
 	public void notesClickPressed(View button) {
 		Intent intent = new Intent(CollectDataActivity.this,
 				NotesActivity.class);

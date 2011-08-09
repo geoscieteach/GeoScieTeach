@@ -19,11 +19,22 @@ import android.widget.EditText;
  *
  *  Author: George Sin
  */
+
+/**
+ * The class NotesActivity which provides the user a way of entering some notes.
+ */
 public class NotesActivity extends GeoSciTeachBaseActivity {
 
 	public static final String NOTES = "NOTES";
 	private EditText notesEditText;
 
+	/**
+	 * This method overrides onCreate(...) in Activity. Set layout views related
+	 * to the note activity.
+	 * 
+	 * @param savedInstanceState
+	 *            - bundle passed to this Activity.
+	 */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
@@ -32,6 +43,10 @@ public class NotesActivity extends GeoSciTeachBaseActivity {
 		notesEditText = (EditText) findViewById(R.id.noteedittext);
 	}
 
+	/**
+	 * This method overrides onResume(...) in Activity. Restores any notes which
+	 * has been saved.
+	 */
 	protected void onResume() {
 		super.onResume();
 
@@ -40,6 +55,10 @@ public class NotesActivity extends GeoSciTeachBaseActivity {
 		notesEditText.setText(settings.getString(NOTES, ""));
 	}
 
+	/**
+	 * This method overrides onPause(...) in Activity. Saves any notes taken to
+	 * shared preferences and to file.
+	 */
 	public void onPause() {
 		super.onPause();
 
@@ -52,7 +71,10 @@ public class NotesActivity extends GeoSciTeachBaseActivity {
 		editor.commit();
 
 		// Write to file...
-		File preparedFile = FileUtils.prepareFileToWriteDetailsTo(this.getApplicationContext(), this.getString(R.string.notes_file));
-		FileUtils.writeDetailsToFile(preparedFile, notesEditText.getText().toString());
+		File preparedFile = FileUtils.prepareFileToWriteDetailsTo(
+				this.getApplicationContext(),
+				this.getString(R.string.notes_file));
+		FileUtils.writeDetailsToFile(preparedFile, notesEditText.getText()
+				.toString());
 	}
 }

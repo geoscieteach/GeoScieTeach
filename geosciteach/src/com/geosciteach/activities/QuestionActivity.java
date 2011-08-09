@@ -17,8 +17,19 @@ import android.widget.Button;
  *
  *  Author: George Sin
  */
+
+/**
+ * The class QuestionActivity which displays a Question to the user.
+ */
 public class QuestionActivity extends GeoSciTeachBaseActivity{
 	
+	/**
+	 * This method overrides onCreate(...) in Activity. Set layout views related
+	 * to the Question activity.
+	 * 
+	 * @param savedInstanceState
+	 *            - bundle passed to this Activity.
+	 */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.question);
@@ -44,6 +55,12 @@ public class QuestionActivity extends GeoSciTeachBaseActivity{
 		});
     }
     
+	/**
+	 * Method which starts the TeachersInfo Activity.
+	 * 
+	 * @param button
+	 *            - the View associated to the button pressed.
+	 */
     public void questionClickPressed(View button) {
     	
     	Intent intent = new Intent(QuestionActivity.this,
@@ -52,6 +69,11 @@ public class QuestionActivity extends GeoSciTeachBaseActivity{
 		startActivity(intent);
     }
     
+    /**
+     * Method with returns the user to the GeoSciTeachMap Activity.
+     * 
+     * @param button - the View associated to the button pressed.
+     */
 	public void backToKewMapOnClickPressed(View button) {
 		
 		Intent intent = new Intent(QuestionActivity.this,
