@@ -16,7 +16,7 @@ import android.widget.Toast;
  *  Copyright (C) 2011 Institute of Education, University of London.
  *
  *  The contents of this file may be used under the terms of the
- *  Creative Commons Attribution-ShareAlike 3.0 Unported License,
+ *  GNU GENERAL PUBLIC LICENSE (GPL) Version 3,
  *  provided that the above copyright notice and this permission notice
  *  is included in all copies or substantial portions of the software.
  *
